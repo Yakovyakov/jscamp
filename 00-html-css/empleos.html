@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>DevJobs - Encuentra tu próximo trabajo</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Resultados de búsqueda de empleos en DevJobs.">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>DevJobs</h1>
+
+    <nav>
+      <a href="./index.html">Inicio</a>
+      <a href="">Empleos</a>
+    </nav>
+
+    <div>
+      <a href="">Publicar un empleo</a>
+      <a href="">Iniciar sesión</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero-job">
+      <h1>Encuentra tu próximo trabajo</h1>
+      <p>Explora miles de oportunidades en el sector tecnológico</p>
+    </section>
+
+    <section class="search-section">
+        <form role="search">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+              <path d="M21 21l-6 -6" />
+            </svg>
+
+            <input required type="text" placeholder="Buscar trabajo, empresa o habilidades">
+          </div>
+        </form>
+
+        <div class="filters">
+          <button class="filter-btn">
+            Tecnología
+            <span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+          <button class="filter-btn">
+            Ubicación
+            <span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            
+          </button>
+          <button class="filter-btn">
+            Tipo de contrato
+            <span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+
+          </button>
+          <button class="filter-btn">
+            Nivel de experiencia
+            <span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+
+    </section>
+    <section class="results">
+
+      <h2>Resultados de búsqueda</h2>
+
+      <article class="job-card">
+        <div class="job-header">
+          <h3>Ingeniero de Software</h3>
+          <button class="apply-btn">Aplicar</button>
+        </div>
+        <div class="job-meta">
+          <span>Tech Solutions Inc. | Remoto</span>
+        </div>
+        <p>
+          Buscamos un ingeniero de software con experiencia en desarrollo web y conocimientos en JavaScript, React y Node.js. 
+          El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.
+        </p>
+      </article>
+
+      <article class="job-card">
+        <div class="job-header">
+          <h3>Analista de Datos</h3>
+          <button class="apply-btn">Aplicar</button>
+        </div>
+        <div class="job-meta">
+          <span>Data Driven Co. | Ciudad de México</span>
+        </div>
+        <p>
+          Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos y herramientas de visualización. 
+          Se requiere conocimiento en SQL, Python y R.
+        </p>
+      </article>
+      
+      <article class="job-card">
+        <div class="job-header">
+          <h3>Desarrollador de Aplicaciones Móviles</h3>
+          <button class="apply-btn">Aplicar</button>
+        </div>
+        <div class="job-meta">
+          <span>Mobile Apps Ltd. | Guadalajara</span>
+        </div>
+        <p>
+          Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y Android. 
+          El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.
+        </p>
+      </article>      
+    </section>
+
+    <section class="pagination">
+      <button class="page-btn"><</button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">4</button>
+      <button class="page-btn">5</button>
+      <button class="page-btn">></button>
+    </section>
+  </main>
+  <footer>
+    <small>&copy; 2025 DevJobs. Todos los derechos reservados.</small>
+  </footer>
+
+</body>
