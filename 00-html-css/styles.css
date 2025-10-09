@@ -355,6 +355,9 @@ article {
   margin: 0;
   padding: 0;
   height: auto !important;
+  max-width: 1280px;
+  margin: 0 auto;
+  
 
   h1 {
     font-size: 2.5rem;
@@ -427,7 +430,12 @@ article {
   }
 
 }
+.jobs-result {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
 
+}
 .jobs-listings {
   border: 1px solid rgba(255, 255, 255, 3);
   border-radius: 1rem;
@@ -457,6 +465,7 @@ article {
     }
   }
 }
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -486,5 +495,121 @@ article {
       color: #fff;
       pointer-events: none;
     }
+  }
+}
+
+/* Detalles */
+
+
+/* Detalles - Breadcrumb */
+.breadcrumb {
+  height: auto !important;
+  display: block !important;
+  text-align: left !important;
+  align-items: unset !important;
+  justify-content: unset !important;
+  flex-direction: unset !important;
+  padding: 1rem 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.breadcrumb nav[aria-label="Ruta de navegación"] {
+  display: block;
+}
+
+.breadcrumb nav[aria-label="Ruta de navegación"] ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb nav[aria-label="Ruta de navegación"] li::after {
+  content: "/";
+  color: var(--text-muted);
+  margin-left: 8px;
+}
+
+.breadcrumb nav[aria-label="Ruta de navegación"] li:last-child::after {
+  content: "";
+}
+
+.breadcrumb a {
+  color: var(--primary-light);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.job-details {
+  height: auto !important;
+  max-width: 1280px;
+  margin: 0 auto;
+  
+
+  p {
+    color: var(--text-muted);
+  }
+  
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.75rem 0 1.25rem;
+  }
+
+  ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.625rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  ul li svg {
+    flex-shrink: 0;
+    color: var(--primary-hover);
+    margin-top: 0.125rem;
+  }
+
+  .job-header {
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0;
+
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .section {
+    padding-top: 0.5rem;
+
+  }
+
+  .section:nth-last-child(2) {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .job-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    padding-bottom: 2rem;
   }
 }
