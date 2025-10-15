@@ -463,7 +463,12 @@ article {
     &:last-child {
       border-bottom: 0;
     }
+
   }
+}
+
+.jobs-listings article.no-border {
+  border-bottom: none;
 }
 
 .pagination {

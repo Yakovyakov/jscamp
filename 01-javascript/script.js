@@ -34,8 +34,108 @@ jobsListingSection.addEventListener('click', function(event) {
   }
 })
 
-const filter = document.querySelector('#filter-technology')
+const filterTech = document.querySelector('#filter-technology')
+const filterLoc = document.querySelector('.filter-technology')
+const filterExp = document.querySelector('.filter-technology')
 
-filter.addEventListener('change', function () {
-  console.log(filter.value)
+filterTech.addEventListener('change', function () {
+  console.log(filterTech.value)
 })
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const filterTech = document.getElementById('filter-technology');
+  const filterLocation = document.getElementById('location');
+  const filterExp = document.getElementById('experience-level');
+  const jobListings = document.querySelectorAll('.jobs-listings article');
+
+  // Palabras clave asociadas a niveles de experiencia
+  const expKeywords = {
+    junior: ['junior', 'entry', 'principiante', 'recién', 'graduado'],
+    mid: ['mid', 'intermedio', 'semi-senior'],
+    senior: ['senior', 'experto', 'avanzado'],
+    lead: ['lead', 'líder', 'jefe', 'head']
+  };
+
+  function normalize(text) {
+    return text.toLowerCase().trim();
+  }
+
+  function matchesText(element, term) {
+    if (!term) return true;
+    const text = normalize(element.textContent);
+    return text.includes(normalize(term));
+  }
+
+  function matchesExperience(article, level) {
+    if (!level) return true;
+    const text = normalize(article.textContent);
+    const keywords = expKeywords[level] || [];
+    return keywords.some(word => text.includes(word));
+  }
+
+  function filterJobs() {
+    const tech = filterTech.value;
+    const location = filterLocation.value;
+    const expLevel = filterExp.value;
+
+    jobListings.forEach(article => {
+      const title = article.querySelector('h3');
+      const meta = article.querySelector('small');
+      const description = article.querySelector('p');
+
+      let show = true;
+
+      // Filtro por tecnología: busca en título, meta y descripción
+      if (tech) {
+        const term = tech;
+        const inTitle = title ? matchesText(title, term) : false;
+        const inMeta = meta ? matchesText(meta, term) : false;
+        const inDesc = description ? matchesText(description, term) : false;
+        show = show && (inTitle || inMeta || inDesc);
+      }
+
+      // Filtro por ubicación: busca en el <small> (empresa | ubicación)
+      console.log('location', location)
+      if (location) {
+        const locationText = location === 'remoto' ? 'remoto' : 
+                             location === 'cdmx' ? 'ciudad de méxico' :
+                             location === 'guadalajara' ? 'guadalajara' :
+                             location === 'monterrey' ? 'monterrey' :
+                             location === 'barcelona' ? 'barcelona' : '';
+        const inMeta = meta ? normalize(meta.textContent).includes(locationText) : false;
+        show = show && inMeta;
+      }
+
+      // Filtro por nivel de experiencia: usa palabras clave
+      if (expLevel) {
+        show = show && matchesExperience(article, expLevel);
+      }
+
+      article.style.display = show ? '' : 'none';
+    });
+
+    // Ajustar css
+    const visibleArticles = Array.from(jobListings).filter(article => 
+      article.style.display !== 'none'
+    );
+    console.log('Visible Articles', visibleArticles)
+    // Quita la clase de todos
+    jobListings.forEach(article => article.classList.remove('no-border'));
+
+    // Si hay al menos un artículo visible, quítale el borde al último
+    if (visibleArticles.length > 0) {
+      visibleArticles[visibleArticles.length - 1].classList.add('no-border');
+    }
+  }
+
+  // Aplicar filtro al cambiar cualquier select
+  filterTech.addEventListener('change', filterJobs);
+  filterLocation.addEventListener('change', filterJobs);
+  filterExp.addEventListener('change', filterJobs);
+
+  // filtrar al cargar (por si hay valores preseleccionados)
+  filterJobs();
+});
