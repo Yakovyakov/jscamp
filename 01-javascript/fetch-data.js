@@ -21,6 +21,16 @@ function generarPaginacion() {
           <path d="M15 6l-6 6l6 6" />
         </svg>
   `
+  if (currentPage > 1) {
+    prev.addEventListener('click', e => {
+      e.preventDefault()
+      mostrarPagina(currentPage - 1)
+    })
+
+  } else {
+    prev.removeAttribute('href')
+  }
+
   // agregar enlaces
   pagination.appendChild(prev);
 
@@ -33,6 +43,10 @@ function generarPaginacion() {
     if (i === currentPage) {
       link.classList.add('is-active'); // página actual resaltada
     }
+    link.addEventListener('click', e => {
+      e.preventDefault()
+      mostrarPagina(i)
+    });
     pagination.appendChild(link);
   }
 
@@ -45,6 +59,16 @@ function generarPaginacion() {
         <path d="M9 6l6 6l-6 6" />
       </svg>
     `
+    if (currentPage < totalPaginas) {
+      next.addEventListener('click', e => {
+        e.preventDefault()
+        mostrarPagina(currentPage + 1)
+      })
+
+    } else {
+      next.removeAttribute('href')
+    }
+
 
     pagination.appendChild(next);
 
