@@ -1,7 +1,7 @@
 const container = document.querySelector('.jobs-listings')
 const pagination = document.querySelector('.pagination')
 
-const RESULTS_PER_PAGE = 3
+const RESULTS_PER_PAGE = 5
 let currentPage = 1
 
 let jobsData = []
